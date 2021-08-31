@@ -27,12 +27,13 @@
 const cityInput = (id) => {
     const inputField = document.getElementById(id)
     const inputValue = inputField.value
+    inputField.value = ''
     return inputValue
 }
 
 //This is the API caller function
 const loadForcast = async (cityName, diplayFunc) => {
-    const city = cityName
+    const city = cityName 
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2b52f3434120d2763fbf7816c47a0928&units=metric`
     const response = await fetch(url)
@@ -43,6 +44,7 @@ const loadForcast = async (cityName, diplayFunc) => {
 
 // This is the display function
 const displayData = forcast => {
+
     const weatherIcon = document.getElementById('weather-icon')
     weatherIcon.setAttribute('src', `https://openweathermap.org/img/wn/${forcast.weather[0].icon}@2x.png`)
 
@@ -53,11 +55,11 @@ const displayData = forcast => {
     cityName.innerText = forcast.name
     temperature.innerText = Math.round(forcast.main.temp)
     situation.innerText = forcast.weather[0].description
+
 }
 
 //Here defaut location's Forecast is being displayed
-loadForcast('feni', displayData)
-
+loadForcast('dhaka', displayData)
 
 
 
