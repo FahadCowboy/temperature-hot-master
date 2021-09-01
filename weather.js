@@ -40,7 +40,8 @@ loadForcast('dhaka', displayData)
 
 
 
-
+let arr = [1, 2, 3, 6, 5]
+console.log(arr.map(value => value + 1))
 
 
 
